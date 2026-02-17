@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trend X - Premium Shoe Store</title>
+<title>Kicks Talk - Premium Shoe Store</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI, sans-serif;}
 body{background:#000;color:#fff;line-height:1.6;overflow-x:hidden;}
@@ -85,7 +85,7 @@ footer a{color:#FFD700;margin:0 10px;}
 <body>
 
 <header>
-    <h1>Trend X</h1>
+    <h1>Kicks Talk</h1>
     <nav>
         <a href="#home">Home</a>
         <a href="#products">Products</a>
@@ -135,6 +135,8 @@ footer a{color:#FFD700;margin:0 10px;}
 
 <footer id="contact">
     <p>📍 Kuliarchar Bazar, Kishoreganj, Dhaka, Bangladesh</p>
+     <p>📍Phone: 01850711725</p>
+    <p>📍Phone: 01813051935</p>
     <p>Follow us on 
         <a href="#">Facebook</a> | 
         <a href="#">Instagram</a> | 
@@ -148,7 +150,7 @@ function orderWhatsApp(name, price, sizeId, colorId){
     const size = document.getElementById(sizeId).value;
     const color = document.getElementById(colorId).value;
     const message = `Hello, I want to order:\nProduct: ${name}\nPrice: ${price}\nSize: ${size}\nColor: ${color}\nPlease confirm.`;
-    const phone = "8801XXXXXXXXX"; // তোমার WhatsApp নম্বর দিন
+    const phone = "8801850711725"; // তোমার WhatsApp নম্বর দিন
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
 }
