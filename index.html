@@ -1,111 +1,249 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TrendX - Online Shoe Store</title>
-<link rel="stylesheet" href="style.css">
+<title>Trend X - Premium Shoe Store</title>
+<style>
+    /* Basic Reset */
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI, sans-serif;}
+    body{background:#000;color:#fff;}
+    a{text-decoration:none;color:inherit;}
+    img{max-width:100%;display:block;}
+
+    /* Header */
+    header{
+        background:#111;
+        padding:20px;
+        text-align:center;
+        position:sticky;
+        top:0;
+        z-index:100;
+    }
+    header h1{color:#FFD700;font-size:2rem;}
+
+    /* Nav */
+    nav{margin-top:10px;}
+    nav a{
+        margin:0 15px;
+        padding:10px 15px;
+        color:#fff;
+        border-radius:5px;
+        transition:0.3s;
+    }
+    nav a:hover{background:#FFD700;color:#000;}
+
+    /* Hero */
+    .hero{
+        background:#222 url('https://images.unsplash.com/photo-1581092795361-85b50445b372?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+        height:80vh;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+        color:#FFD700;
+    }
+    .hero h2{font-size:3rem;margin-bottom:20px;}
+    .hero a{
+        background:#FFD700;color:#000;padding:15px 30px;
+        border-radius:10px;font-weight:bold;
+        transition:0.3s;
+    }
+    .hero a:hover{background:#fff;color:#000;}
+
+    /* Products Section */
+    .products{
+        padding:50px 10%;
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+        gap:30px;
+        background:#111;
+    }
+    .product-card{
+        background:#1a1a1a;
+        padding:20px;
+        border-radius:10px;
+        transition:0.3s;
+    }
+    .product-card:hover{transform:translateY(-5px);}
+    .product-card img{border-radius:10px;margin-bottom:15px;}
+    .product-card h3{color:#FFD700;margin-bottom:10px;}
+    .product-card p{font-size:0.9rem;margin-bottom:10px;}
+    .product-card .price{font-weight:bold;margin-bottom:10px;}
+    .product-card select, .product-card button{
+        width:100%;
+        padding:10px;
+        margin-bottom:10px;
+        border:none;
+        border-radius:5px;
+    }
+    .product-card button{
+        background:#FFD700;color:#000;font-weight:bold;
+        cursor:pointer;transition:0.3s;
+    }
+    .product-card button:hover{background:#fff;}
+
+    /* Order Modal */
+    .modal{
+        display:none;
+        position:fixed;
+        top:0;left:0;width:100%;height:100%;
+        background:rgba(0,0,0,0.8);
+        justify-content:center;
+        align-items:center;
+        z-index:1000;
+    }
+    .modal-content{
+        background:#111;
+        padding:30px;
+        border-radius:10px;
+        width:90%;
+        max-width:500px;
+        position:relative;
+    }
+    .modal-content h3{color:#FFD700;margin-bottom:20px;text-align:center;}
+    .modal-content label{display:block;margin:10px 0 5px;}
+    .modal-content input, .modal-content select{width:100%;padding:10px;border:none;border-radius:5px;margin-bottom:10px;}
+    .modal-content button{
+        width:100%;padding:15px;background:#FFD700;color:#000;font-weight:bold;border:none;border-radius:5px;cursor:pointer;
+    }
+    .close-btn{
+        position:absolute;top:10px;right:15px;font-size:1.5rem;color:#FFD700;cursor:pointer;
+    }
+
+    /* Footer */
+    footer{
+        background:#111;
+        text-align:center;
+        padding:20px;
+        margin-top:30px;
+        color:#fff;
+    }
+    footer a{color:#FFD700;margin:0 10px;}
+</style>
 </head>
 <body>
 
 <header>
-  <h1>TrendX</h1>
-  <nav>
-    <ul>
-      <li><a href="#products">প্রোডাক্ট</a></li>
-      <li><a href="#contact">যোগাযোগ</a></li>
-    </ul>
-  </nav>
+    <h1>Trend X</h1>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+    </nav>
 </header>
 
-<section id="products">
-  <h2>আমাদের প্রোডাক্ট</h2>
-  <div class="product-grid">
-    <!-- 10 প্রোডাক্টের কার্ড -->
-    <div class="product-card" onclick="openModal(1)">
-      <img src="images/product1.jpg" alt="Product 1">
-      <h3>প্রোডাক্ট ১</h3>
-      <p>৳ দাম</p>
-      <button onclick="openModal(1)">Order Now</button>
-    </div>
-    <div class="product-card" onclick="openModal(2)">
-      <img src="images/product2.jpg" alt="Product 2">
-      <h3>প্রোডাক্ট ২</h3>
-      <p>৳ দাম</p>
-      <button onclick="openModal(2)">Order Now</button>
-    </div>
-    <div class="product-card" onclick="openModal(3)">
-      <img src="images/product3.jpg" alt="Product 3">
-      <h3>প্রোডাক্ট ৩</h3>
-      <p>৳ দাম</p>
-      <button onclick="openModal(3)">Order Now</button>
-    </div>
-    <div class="product-card" onclick="openModal(4)">
-      <img src="images/product4.jpg" alt="Product 4">
-      <h3>প্রোডাক্ট ৪</h3>
-      <p>৳ দাম</p>
-      <button onclick="openModal(4)">Order Now</button>
-    </div>
-    <div class="product-card" onclick="openModal(5)">
-      <img src="images/product5.jpg" alt="Product 5">
-      <h3>প্রোডাক্ট ৫</h3>
-      <p>৳ দাম</p>
-      <button onclick="openModal(5)">Order Now</button>
-    </div>
-    <div class="product-card" onclick="openModal(6)">
-      <img src="images/product6.jpg" alt="Product 6">
-      <h3>প্রোডাক্ট ৬</h3>
-      <p>৳ দাম</p>
-      <button onclick="openModal(6)">Order Now</button>
-    </div>
-    <div class="product-card" onclick="openModal(7)">
-      <img src="images/product7.jpg" alt="Product 7">
-      <h3>প্রোডাক্ট ৭</h3>
-      <p>৳ দাম</p>
-      <button onclick="openModal(7)">Order Now</button>
-    </div>
-    <div class="product-card" onclick="openModal(8)">
-      <img src="images/product8.jpg" alt="Product 8">
-      <h3>প্রোডাক্ট ৮</h3>
-      <p>৳ দাম</p>
-      <button onclick="openModal(8)">Order Now</button>
-    </div>
-    <div class="product-card" onclick="openModal(9)">
-      <img src="images/product9.jpg" alt="Product 9">
-      <h3>প্রোডাক্ট ৯</h3>
-      <p>৳ দাম</p>
-      <button onclick="openModal(9)">Order Now</button>
-    </div>
-    <div class="product-card" onclick="openModal(10)">
-      <img src="images/product10.jpg" alt="Product 10">
-      <h3>প্রোডাক্ট ১০</h3>
-      <p>৳ দাম</p>
-      <button onclick="openModal(10)">Order Now</button>
-    </div>
-  </div>
+<section class="hero" id="home">
+    <h2>Premium Shoes For Every Style</h2>
+    <a href="#products">Shop Now</a>
 </section>
 
-<!-- Modal -->
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h2 id="modal-title"></h2>
-    <img id="modal-img" src="" alt="">
-    <p>মূল্য: <span id="modal-price"></span></p>
-    <label>সাইজ:</label>
-    <select id="size">
-      <option>Small</option>
-      <option>Medium</option>
-      <option>Large</option>
-    </select>
-    <button onclick="orderProduct()">Order via WhatsApp</button>
-  </div>
+<section class="products" id="products">
+    <!-- Example Product -->
+    <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1606813908663-f048bba6a07d?auto=format&fit=crop&w=600&q=80" alt="Shoe 1">
+        <h3>Classic Black Shoe</h3>
+        <p>Comfortable & Stylish for Daily Wear</p>
+        <p class="price">BDT 2500</p>
+        <label for="size1">Size</label>
+        <select id="size1">
+            <option>38</option>
+            <option>39</option>
+            <option>40</option>
+            <option>41</option>
+            <option>42</option>
+        </select>
+        <label for="color1">Color</label>
+        <select id="color1">
+            <option>Black</option>
+            <option>White</option>
+            <option>Yellow</option>
+        </select>
+        <button onclick="openModal('Classic Black Shoe', 'BDT 2500')">Order Now</button>
+    </div>
+
+    <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1571111769930-d0e54b820a45?auto=format&fit=crop&w=600&q=80" alt="Shoe 2">
+        <h3>Sporty White Shoe</h3>
+        <p>Lightweight & Perfect for Running</p>
+        <p class="price">BDT 3000</p>
+        <label for="size2">Size</label>
+        <select id="size2">
+            <option>38</option>
+            <option>39</option>
+            <option>40</option>
+            <option>41</option>
+            <option>42</option>
+        </select>
+        <label for="color2">Color</label>
+        <select id="color2">
+            <option>White</option>
+            <option>Black</option>
+            <option>Yellow</option>
+        </select>
+        <button onclick="openModal('Sporty White Shoe', 'BDT 3000')">Order Now</button>
+    </div>
+</section>
+
+<!-- Order Modal -->
+<div class="modal" id="orderModal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h3>Place Your Order</h3>
+        <form id="orderForm">
+            <label for="productName">Product</label>
+            <input type="text" id="productName" readonly>
+            <label for="productPrice">Price</label>
+            <input type="text" id="productPrice" readonly>
+            <label for="customerName">Your Name</label>
+            <input type="text" id="customerName" required>
+            <label for="customerPhone">Phone Number</label>
+            <input type="tel" id="customerPhone" required>
+            <label for="customerAddress">Delivery Address</label>
+            <input type="text" id="customerAddress" required>
+            <label for="paymentMethod">Payment Method</label>
+            <select id="paymentMethod" required>
+                <option>bKash</option>
+                <option>Nagad</option>
+                <option>Rocket</option>
+                <option>Cash on Delivery</option>
+            </select>
+            <button type="submit">Confirm Order</button>
+        </form>
+    </div>
 </div>
 
-<footer>
-  <p>&copy; 2026 TrendX. All rights reserved.</p>
+<footer id="contact">
+    <p>📍 Kuliarchar Bazar, Kishoreganj, Dhaka, Bangladesh</p>
+    <p>Follow us on 
+        <a href="#">Facebook</a> | 
+        <a href="#">Instagram</a> | 
+        <a href="#">TikTok</a>
+    </p>
+    <p>&copy; 2026 Trend X</p>
 </footer>
 
-<script src="script.js"></script>
+<script>
+    // Open Order Modal
+    function openModal(name, price){
+        document.getElementById('productName').value = name;
+        document.getElementById('productPrice').value = price;
+        document.getElementById('orderModal').style.display = 'flex';
+    }
+    // Close Order Modal
+    function closeModal(){
+        document.getElementById('orderModal').style.display = 'none';
+    }
+
+    // Handle Form Submission
+    document.getElementById('orderForm').addEventListener('submit', function(e){
+        e.preventDefault();
+        alert('Your order has been placed successfully! 📦\nWe will contact you soon.');
+        closeModal();
+        this.reset();
+    });
+</script>
+
 </body>
 </html>
