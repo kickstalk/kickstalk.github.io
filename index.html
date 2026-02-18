@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kicks Talk | Premium Shoes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Kicks Talk</h1>
+    <p>Premium Shoes for 15-25 Years Old</p>
+</header>
+
+<main>
+    <section class="products" id="products">
+        <!-- Products dynamically loaded from script.js -->
+    </section>
+
+    <section class="cart">
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <p>Delivery Charge: <input type="number" id="delivery-charge" placeholder="Enter Tk" /></p>
+        <p>Total: <span id="total-price">0</span> Tk</p>
+        <p>
+            Payment Method: 
+            <select id="payment-method">
+                <option value="COD">Cash on Delivery</option>
+                <option value="Bkash">Bkash</option>
+                <option value="Nagad">Nagad</option>
+                <option value="Rocket">Rocket</option>
+            </select>
+        </p>
+        <p>Transaction ID (if not COD): <input type="text" id="transaction-id" placeholder="Enter ID"/></p>
+        <button id="checkout">Place Order</button>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
